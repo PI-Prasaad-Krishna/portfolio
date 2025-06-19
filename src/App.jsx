@@ -179,7 +179,7 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm Prasaad, a Computer Science student at <span className="text-purple-400 font-semibold">SRM Institute of Technology, Ramapuram</span>. 
+                I'm Prasaad, a Computer Science student at <span className="text-purple-400 font-semibold">SRM Institute of Science and Technology, Ramapuram</span>. 
                 I love creating tech that solves real problems, and I'm deeply interested in web development, competitive programming, and machine learning.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
