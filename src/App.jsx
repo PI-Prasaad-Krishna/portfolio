@@ -54,6 +54,13 @@ const Portfolio = () => {
       tech: ["C++", "Algorithms", "Visualization"],
       color: "from-blue-600 to-purple-600",
       link: "https://github.com/PI-Prasaad-Krishna/DP-MatrixChainMultiplication"
+    },
+    {
+      title: "MindMate – Mental Wellness Web App",
+      desc: "A full-stack platform to help users manage their mental health. Includes journaling, motivational content, and a mood-based support system.",
+      tech: ["React", "Firebase", "Tailwind", "WebApp"],
+      color: "from-pink-500 to-indigo-500",
+      link: "https://mindmate-34df5.web.app/"
     }
   ];
 
