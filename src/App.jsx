@@ -61,6 +61,13 @@ const Portfolio = () => {
       tech: ["React", "Firebase", "Tailwind", "WebApp"],
       color: "from-pink-500 to-indigo-500",
       link: "https://mindmate-34df5.web.app/"
+    },
+    {
+    title: "AI Interview Simulator",
+    desc: "Simulates real job interviews using AI. Users answer dynamic questions and get scored with instant feedback. Built for a club hackathon with a full-stack React + AI setup.",
+    tech: ["React", "OpenRouter", "AI", "Full-Stack"],
+    color: "from-indigo-600 to-purple-600",
+    link: "https://hackathon-ck-7eu7.vercel.app/"
     }
   ];
 
