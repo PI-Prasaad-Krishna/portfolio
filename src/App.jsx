@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MapPin, ExternalLink, GraduationCap, Heart } from 'lucide-react';
 
-// Import the Custom Cursor and 3D Background
+// Your other components
 import CustomCursor from './CustomCursor';
 import Background3D from './Background3D';
 
-// Import icons for the updated skills section
+// Icons for the skills section
 import { FaPython, FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa';
 import { SiJavascript, SiCplusplus, SiMongodb, SiTailwindcss, SiMysql, SiC, SiJsonwebtokens } from 'react-icons/si';
 import { TbBrain } from 'react-icons/tb';
-
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,7 +24,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 10 } },
 };
 
-// Updated skills data structure to match your image
 const skillCategories = [
     {
         title: "Languages",
@@ -56,8 +54,40 @@ const skillCategories = [
     }
 ];
 
-
 const Portfolio = () => {
+  // State and function for Web3Forms
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    const formData = new FormData(form.current);
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      }).then((res) => res.json());
+
+      if (res.success) {
+        setIsSent(true);
+        e.target.reset();
+      } else {
+        console.error("Error sending message:", res);
+        alert(res.message || "An error occurred.");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("An error occurred. Please check the console.");
+    }
+
+    setIsSending(false);
+  };
+  
   const projects = [
     {
       title: "LexiGen AI - Content Generation Tool",
@@ -172,7 +202,7 @@ const Portfolio = () => {
               Prasaad Krishna
             </div>
             <div className="hidden md:flex space-x-8">
-              {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+              {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} onClick={(e) => handleNavClick(e, item.toLowerCase())} className="hover:text-purple-400 transition-colors duration-300 font-medium">
                   {item}
                 </a>
@@ -246,11 +276,15 @@ const Portfolio = () => {
                       <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                           Skills & Technologies
                       </h2>
-                      <p className="text-xl text-gray-400">Technologies I work with to bring ideas to life</p>
                   </motion.div>
                   <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-8">
                       {skillCategories.map((category) => (
-                          <motion.div key={category.title} variants={itemVariants} className="bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10">
+                          <motion.div
+                            key={category.title}
+                            variants={itemVariants}
+                            whileHover={{ scale: 1.05, y: -10, transition: { type: 'spring', stiffness: 300 } }}
+                            className="bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10"
+                          >
                               <h3 className="text-xl font-bold mb-6 text-center text-gray-200">{category.title}</h3>
                               <div className="space-y-4">
                                   {category.skills.map((skill) => (
@@ -273,39 +307,76 @@ const Portfolio = () => {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                   Featured Projects
                 </h2>
-                <p className="text-xl text-gray-400">Some of my recent work and achievements</p>
               </motion.div>
               <motion.div variants={containerVariants} className="grid md:grid-cols-2 gap-8">
                 {projects.map((project, index) => <ProjectCard key={index} project={project} />)}
               </motion.div>
             </div>
           </section>
+          
+          {/* Updated Experience Section with Card Format */}
+          <section id="experience" className="py-20 px-6 relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <motion.div variants={itemVariants} className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                  Experience & Achievements
+                </h2>
+              </motion.div>
+              <div className="flex justify-center">
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -10, transition: { type: 'spring', stiffness: 300 } }}
+                  className="bg-white/5 rounded-2xl p-8 backdrop-blur border border-white/10 max-w-2xl w-full"
+                >
+                  <h3 className="text-2xl font-bold text-white">Hackathon Finalist</h3>
+                  <p className="text-purple-300 mb-2 text-lg">HackVerse'25 | March 2025</p>
+                  <p className="text-gray-300 leading-relaxed">Developed "LearnX," a MERN stack + AI e-learning platform featuring interactive courses and an AI Q&A bot, securing a place in the finals among numerous competing teams.</p>
+                </motion.div>
+              </div>
+            </div>
+          </section>
 
-          {/* Contact Section */}
+          {/* MODIFICATION: Contact Section with form and links */}
           <section id="contact" className="py-20 px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Let's Connect
-              </motion.h2>
-              <motion.p variants={itemVariants} className="text-xl text-gray-400 mb-12">
-                Ready to collaborate and build something awesome together!
-              </motion.p>
-              <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-8 mb-12">
-                  <motion.a variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }} href="mailto:prasaad2005@gmail.com" className="group bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10" role="button">
-                      <Mail className="mx-auto mb-4 text-red-400 group-hover:scale-110 transition-transform duration-300" size={32} />
-                      <h3 className="font-bold">Email</h3>
+                <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                    Let's Connect
+                </motion.h2>
+                <motion.p variants={itemVariants} className="text-xl text-gray-400 mb-12">
+                    Have a question or want to collaborate? Send me a message!
+                </motion.p>
+                
+                <motion.form ref={form} onSubmit={sendEmail} variants={itemVariants} className="text-left max-w-xl mx-auto space-y-6">
+                    <input type="text" name="name" required placeholder="Your Name" className="w-full bg-white/10 border border-white/20 rounded-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                    <input type="email" name="email" required placeholder="Your Email" className="w-full bg-white/10 border border-white/20 rounded-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                    <textarea name="message" required placeholder="Your Message" rows="5" className="w-full bg-white/10 border border-white/20 rounded-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"></textarea>
+                    <button
+                    type="submit"
+                    disabled={isSending || isSent}
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    role="button"
+                    >
+                    {isSending ? 'Sending...' : isSent ? 'Message Sent!' : 'Send Message'}
+                    </button>
+                </motion.form>
+
+                <motion.p variants={itemVariants} className="mt-16 text-lg text-gray-400">
+                    Or find me on
+                </motion.p>
+                <motion.div variants={containerVariants} className="flex justify-center gap-8 mt-6">
+                  <motion.a variants={itemVariants} whileHover={{ scale: 1.1, y: -5 }} href="mailto:prasaad2005@gmail.com" className="group text-gray-400 hover:text-white transition-colors" role="button">
+                      <Mail size={32} />
                   </motion.a>
-                  <motion.a variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }} href="https://github.com/PI-Prasaad-Krishna" className="group bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10" role="button">
-                      <Github className="mx-auto mb-4 text-gray-400 group-hover:scale-110 transition-transform duration-300" size={32} />
-                      <h3 className="font-bold">GitHub</h3>
+                  <motion.a variants={itemVariants} whileHover={{ scale: 1.1, y: -5 }} href="https://github.com/PI-Prasaad-Krishna" className="group text-gray-400 hover:text-white transition-colors" role="button">
+                      <Github size={32} />
                   </motion.a>
-                  <motion.a variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }} href="https://www.linkedin.com/in/p-i-prasaad-krishna-1b880a290/" className="group bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10" role="button">
-                      <Linkedin className="mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform duration-300" size={32} />
-                      <h3 className="font-bold">LinkedIn</h3>
+                  <motion.a variants={itemVariants} whileHover={{ scale: 1.1, y: -5 }} href="https://www.linkedin.com/in/p-i-prasaad-krishna-1b880a290/" className="group text-gray-400 hover:text-white transition-colors" role="button">
+                      <Linkedin size={32} />
                   </motion.a>
               </motion.div>
             </div>
           </section>
+
         </motion.div>
 
         {/* Footer */}
