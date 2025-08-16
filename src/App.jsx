@@ -8,16 +8,20 @@ import Background3D from './Background3D';
 
 // Icons for the skills section
 import { FaPython, FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa';
-// MODIFICATION: Added SiFirebase icon import
 import { SiJavascript, SiCplusplus, SiMongodb, SiTailwindcss, SiMysql, SiC, SiJsonwebtokens, SiFirebase } from 'react-icons/si';
 import { TbBrain } from 'react-icons/tb';
 
 const containerVariants = {
-  // ... variants are unchanged
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+  },
 };
 
 const itemVariants = {
-  // ... variants are unchanged
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 10 } },
 };
 
 const skillCategories = [
@@ -43,9 +47,8 @@ const skillCategories = [
         title: "Tools & Others",
         skills: [
             { name: "Git & GitHub", icon: <FaGitAlt className="text-orange-500" /> },
-            { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
-            // MODIFICATION: Added Firebase to the list
             { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+            { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
             { name: "JWT Auth", icon: <SiJsonwebtokens className="text-purple-400" /> },
             { name: "Machine Learning", icon: <TbBrain className="text-pink-400" /> },
         ]
@@ -53,7 +56,6 @@ const skillCategories = [
 ];
 
 const Portfolio = () => {
-  // ... the rest of your component remains the same
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -334,7 +336,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Contact Section with form and links */}
+          {/* MODIFICATION: Contact Section with form and links */}
           <section id="contact" className="py-20 px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
