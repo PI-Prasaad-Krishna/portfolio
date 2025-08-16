@@ -28,6 +28,13 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "LexiGen AI - Content Generation Tool",
+      desc: "An AI-powered application that generates creative and technical content, from blog posts to marketing copy. Built with a focus on a clean user experience and powerful generative capabilities.",
+      tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase"],
+      color: "from-cyan-500 to-blue-500",
+      link: "https://lexigenai.vercel.app/"
+    },
+    {
       title: "GetChef - AI Recipe Generator",
       desc: "A full-stack web app that generates unique recipes from user-provided ingredients using AI. Features secure user authentication, a personal recipe collection, and a multi-page interface.",
       tech: ["React", "Firebase", "Tailwind CSS", "Vite", "AI"],
@@ -77,6 +84,14 @@ const Portfolio = () => {
     link: "https://hackathon-ck-7eu7.vercel.app/"
     }
   ];
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const FloatingLogo = ({ skill, index }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -152,7 +167,12 @@ const Portfolio = () => {
             </div>
             <div className="hidden md:flex space-x-8">
               {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-purple-400 transition-colors duration-300 font-medium">
+                <a 
+                  key={item} 
+                  href={`#${item.toLowerCase()}`} 
+                  onClick={(e) => handleNavClick(e, item.toLowerCase())}
+                  className="hover:text-purple-400 transition-colors duration-300 font-medium"
+                >
                   {item}
                 </a>
               ))}
@@ -178,10 +198,10 @@ const Portfolio = () => {
               Building things that make an impact with cutting-edge technology and creative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <a href="#contact" className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 inline-block text-center">
+              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 inline-block text-center">
                 Get in Touch
               </a>
-              <a href="#projects" className="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-500 hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-block text-center">
+              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-500 hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-block text-center">
                 View My Work
               </a>
             </div>
