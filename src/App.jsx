@@ -90,8 +90,8 @@ const Portfolio = () => {
   
   const projects = [
     {
-      title: "LexiGen AI - Content Generation Tool",
-      desc: "An AI-powered application that generates creative and technical content, from blog posts to marketing copy. Built with a focus on a clean user experience and powerful generative capabilities.",
+      title: "LexiGen AI - Legal Document Generation Tool",
+      desc: "An AI-powered platform for generating key legal documents, currently featuring rental agreements and NDAs. LexiGen AI is designed to streamline the creation of accurate legal paperwork through an intuitive interface, with plans to expand its document library.",
       tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase", "Prompt Engineering", "Full-Stack"],
       color: "from-cyan-500 to-blue-500",
       link: "https://lexigenai.vercel.app/"
