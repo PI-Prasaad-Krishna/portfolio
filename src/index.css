@@ -1,4 +1,12 @@
+/* src/index.css */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide the default cursor on larger screens for ALL interactive elements */
+@media (min-width: 768px) {
+  body, a, button, [role="button"] {
+    cursor: none;
+  }
+}
