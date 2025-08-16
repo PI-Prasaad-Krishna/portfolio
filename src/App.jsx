@@ -30,14 +30,14 @@ const Portfolio = () => {
     {
       title: "LexiGen AI - Content Generation Tool",
       desc: "An AI-powered application that generates creative and technical content, from blog posts to marketing copy. Built with a focus on a clean user experience and powerful generative capabilities.",
-      tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase"],
+      tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase", "Prompt Engineering"],
       color: "from-cyan-500 to-blue-500",
       link: "https://lexigenai.vercel.app/"
     },
     {
       title: "GetChef - AI Recipe Generator",
       desc: "A full-stack web app that generates unique recipes from user-provided ingredients using AI. Features secure user authentication, a personal recipe collection, and a multi-page interface.",
-      tech: ["React", "Firebase", "Tailwind CSS", "Vite", "AI"],
+      tech: ["React", "Firebase", "Tailwind CSS", "Vite", "AI", "Prompt Engineering"],
       color: "from-pink-500 to-purple-500",
       link: "https://getchef.vercel.app/"
     },
