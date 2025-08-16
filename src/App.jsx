@@ -47,6 +47,7 @@ const skillCategories = [
         title: "Tools & Others",
         skills: [
             { name: "Git & GitHub", icon: <FaGitAlt className="text-orange-500" /> },
+            { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
             { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
             { name: "JWT Auth", icon: <SiJsonwebtokens className="text-purple-400" /> },
             { name: "Machine Learning", icon: <TbBrain className="text-pink-400" /> },
