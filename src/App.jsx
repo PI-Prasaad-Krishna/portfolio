@@ -88,62 +88,63 @@ const Portfolio = () => {
     setIsSending(false);
   };
   
+  // Using the full project list you provided, with the new githubLink property
   const projects = [
     {
       title: "LexiGen AI - Legal Document Generation Tool",
       desc: "An AI-powered platform for generating key legal documents, currently featuring rental agreements and NDAs. LexiGen AI is designed to streamline the creation of accurate legal paperwork through an intuitive interface, with plans to expand its document library.",
       tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase", "Prompt Engineering", "Full-Stack"],
-      color: "from-cyan-500 to-blue-500",
-      link: "https://lexigenai.vercel.app/"
+      link: "https://lexigenai.vercel.app/",
+      githubLink: "https://github.com/PI-Prasaad-Krishna/LexiGen"
     },
     {
       title: "GetChef - AI Recipe Generator",
       desc: "A full-stack web app that generates unique recipes from user-provided ingredients using AI. Features secure user authentication, a personal recipe collection, and a multi-page interface.",
       tech: ["React", "Firebase", "Tailwind CSS", "Vite", "AI", "Prompt Engineering", "Full-Stack"],
-      color: "from-pink-500 to-purple-500",
-      link: "https://getchef.vercel.app/"
+      link: "https://getchef.vercel.app/",
+      githubLink: "https://github.com/PI-Prasaad-Krishna/GetChef"
     },
     {
       title: "LearnX - AI Powered E-Learning Platform",
       desc: "MERN Stack + AI with interactive courses, demo videos, and AI Q&A bot. Built during HackVerse'25.",
       tech: ["React", "Node.js", "MongoDB", "AI"],
-      color: "from-purple-600 to-blue-600",
-      link: "https://github.com/abhinavkajeev/Hackverse25-LearnX"
+      link: null, 
+      githubLink: "https://github.com/abhinavkajeev/Hackverse25-LearnX"
     },
     {
       title: "F1 Race Winner Predictor",
       desc: "Python-based statistical model predicting F1 GP outcomes using driver form and track stats.",
       tech: ["Python", "ML", "Statistics"],
-      color: "from-red-600 to-orange-600",
-      link: "https://github.com/PI-Prasaad-Krishna/f1-predictions"
+      link: null,
+      githubLink: "https://github.com/PI-Prasaad-Krishna/f1-predictions"
     },
     {
-      title: "Bus Reservation System",
-      desc: "Python + MySQL GUI app for booking multiple seats with visual layout, user login, and real-time seat map.",
-      tech: ["Python", "MySQL", "Tkinter"],
-      color: "from-green-600 to-teal-600",
-      link: "https://github.com/PI-Prasaad-Krishna/Simple_BusReservationSystem"
-    },
-    {
-      title: "Matrix Chain Multiplication Visualizer",
-      desc: "C++ implementation with visualization showing optimal parenthesis placement.",
-      tech: ["C++", "Algorithms", "Visualization"],
-      color: "from-blue-600 to-purple-600",
-      link: "https://github.com/PI-Prasaad-Krishna/DP-MatrixChainMultiplication"
-    },
+        title: "Bus Reservation System",
+        desc: "Python + MySQL GUI app for booking multiple seats with visual layout, user login, and real-time seat map.",
+        tech: ["Python", "MySQL", "Tkinter"],
+        link: null,
+        githubLink: "https://github.com/PI-Prasaad-Krishna/Simple_BusReservationSystem"
+      },
+      {
+        title: "Matrix Chain Multiplication Visualizer",
+        desc: "C++ implementation with visualization showing optimal parenthesis placement.",
+        tech: ["C++", "Algorithms", "Visualization"],
+        link: null,
+        githubLink: "https://github.com/PI-Prasaad-Krishna/DP-MatrixChainMultiplication"
+      },
     {
       title: "MindMate – Mental Wellness Web App",
       desc: "A full-stack platform to help users manage their mental health. Includes journaling, motivational content, and a mood-based support system.",
       tech: ["React", "Firebase", "Tailwind", "WebApp"],
-      color: "from-pink-500 to-indigo-500",
-      link: "https://mindmate-34df5.web.app/"
+      link: "https://mindmate-34df5.web.app/",
+      githubLink: "https://github.com/PI-Prasaad-Krishna/MindMate"
     },
     {
     title: "AI Interview Simulator",
     desc: "Simulates real job interviews using AI. Users answer dynamic questions and get scored with instant feedback. Built for a club hackathon with a full-stack React + AI setup.",
     tech: ["React", "OpenRouter", "AI", "Full-Stack", "Prompt Engineering"],
-    color: "from-indigo-600 to-purple-600",
-    link: "https://hackathon-ck-7eu7.vercel.app/"
+    link: "https://hackathon-ck-7eu7.vercel.app/",
+    githubLink: "https://github.com/abhinavkajeev/hackathon-ck"
     }
   ];
 
@@ -156,29 +157,46 @@ const Portfolio = () => {
     <motion.div
       variants={itemVariants}
       whileHover={{ y: -8, scale: 1.03, transition: { type: 'spring', stiffness: 300 } }}
-      className={`relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br ${project.color} text-white group`}
+      className="relative overflow-hidden rounded-2xl p-6 bg-white/5 backdrop-blur border border-white/10 group"
     >
-      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-      <div className="relative z-10">
-        <h3 className="text-xl font-bold mb-3 group-hover:text-yellow-300 transition-colors duration-300">{project.title}</h3>
-        <p className="text-white/90 mb-4 leading-relaxed">{project.desc}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.map((tech, i) => (
-            <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium backdrop-blur">
-              {tech}
-            </span>
-          ))}
+      <div className="relative z-10 flex flex-col h-full">
+        <div>
+          <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
+          <p className="text-white/90 mb-4 leading-relaxed">{project.desc}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tech.map((tech, i) => (
+              <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium backdrop-blur">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center text-yellow-300 group-hover:text-yellow-200 transition-colors duration-300"
-          role="button"
-        >
-          <ExternalLink size={16} className="mr-2" />
-          <span className="text-sm font-medium">View Project</span>
-        </a>
+        <div className="flex items-center gap-6 mt-auto pt-4">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors duration-300"
+              role="button"
+            >
+              <ExternalLink size={16} className="mr-2" />
+              <span className="text-sm font-medium">View Project</span>
+            </a>
+          )}
+          {project.githubLink && (
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors duration-300"
+              role="button"
+            >
+              <Github size={16} className="mr-2" />
+              {!project.link && <span className="text-sm font-medium">View Code</span>}
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -213,36 +231,37 @@ const Portfolio = () => {
 
         {/* Hero Section */}
         <section id="hero" className="min-h-screen flex items-center justify-center relative z-10 px-6">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
-              Hi, I'm Prasaad Krishna
-            </motion.h1>
-            <motion.p variants={itemVariants} className="text-xl md:text-2xl mb-8 text-gray-300">
-              B.Tech CSE Student | Developer | F1 Enthusiast
-            </motion.p>
-            <motion.p variants={itemVariants} className="text-lg md:text-xl mb-12 text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Building things that make an impact with cutting-edge technology and creative solutions.
-            </motion.p>
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center">
-              <motion.a whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' }} transition={{ type: 'spring', stiffness: 300 }} href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full font-semibold text-lg inline-block text-center">
-                Get in Touch
-              </motion.a>
-              <motion.a whileHover={{ scale: 1.05, backgroundColor: '#8b5cf6', boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' }} transition={{ type: 'spring', stiffness: 300 }} href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold text-lg inline-block text-center">
-                View My Work
-              </motion.a>
+            <motion.div
+                className="text-center max-w-4xl mx-auto"
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
+            >
+                <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
+                Hi, I'm Prasaad Krishna
+                </motion.h1>
+                <motion.p variants={itemVariants} className="text-xl md:text-2xl mb-8 text-gray-300">
+                B.Tech CSE Student | Developer | F1 Enthusiast
+                </motion.p>
+                <motion.p variants={itemVariants} className="text-lg md:text-xl mb-12 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Building things that make an impact with cutting-edge technology and creative solutions.
+                </motion.p>
+                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center">
+                <motion.a whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' }} transition={{ type: 'spring', stiffness: 300 }} href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full font-semibold text-lg inline-block text-center">
+                    Get in Touch
+                </motion.a>
+                <motion.a whileHover={{ scale: 1.05, backgroundColor: '#8b5cf6', boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' }} transition={{ type: 'spring', stiffness: 300 }} href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold text-lg inline-block text-center">
+                    View My Work
+                </motion.a>
+                </motion.div>
             </motion.div>
-          </motion.div>
         </section>
 
         {/* Sections Wrapper for scroll animations */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={containerVariants}>
-          {/* About Section */}
-          <section id="about" className="py-20 px-6 relative z-10">
+          
+          {/* MODIFICATION: Added scroll-mt-24 to fix nav overlap AND restored section content */}
+          <section id="about" className="py-20 px-6 relative z-10 scroll-mt-24">
             <div className="max-w-6xl mx-auto">
               <motion.div variants={itemVariants} className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -269,39 +288,37 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Revamped Skills Section with Logos */}
-          <section id="skills" className="py-20 px-6 relative z-10">
-              <div className="max-w-6xl mx-auto">
-                  <motion.div variants={itemVariants} className="text-center mb-16">
-                      <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                          Skills & Technologies
-                      </h2>
-                  </motion.div>
-                  <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-8">
-                      {skillCategories.map((category) => (
-                          <motion.div
-                            key={category.title}
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.05, y: -10, transition: { type: 'spring', stiffness: 300 } }}
-                            className="bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10"
-                          >
-                              <h3 className="text-xl font-bold mb-6 text-center text-gray-200">{category.title}</h3>
-                              <div className="space-y-4">
-                                  {category.skills.map((skill) => (
-                                      <div key={skill.name} className="flex items-center text-lg">
-                                          <span className="text-2xl mr-4">{skill.icon}</span>
-                                          <span className="text-gray-300">{skill.name}</span>
-                                      </div>
-                                  ))}
-                              </div>
-                          </motion.div>
+          <section id="skills" className="py-20 px-6 relative z-10 scroll-mt-24">
+            <div className="max-w-6xl mx-auto">
+              <motion.div variants={itemVariants} className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                  Skills & Technologies
+                </h2>
+              </motion.div>
+              <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-8">
+                {skillCategories.map((category) => (
+                  <motion.div
+                    key={category.title}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05, y: -10, transition: { type: 'spring', stiffness: 300 } }}
+                    className="bg-white/5 rounded-2xl p-6 backdrop-blur border border-white/10"
+                  >
+                    <h3 className="text-xl font-bold mb-6 text-center text-gray-200">{category.title}</h3>
+                    <div className="space-y-4">
+                      {category.skills.map((skill) => (
+                        <div key={skill.name} className="flex items-center text-lg">
+                          <span className="text-2xl mr-4">{skill.icon}</span>
+                          <span className="text-gray-300">{skill.name}</span>
+                        </div>
                       ))}
+                    </div>
                   </motion.div>
-              </div>
+                ))}
+              </motion.div>
+            </div>
           </section>
 
-          {/* Projects Section */}
-          <section id="projects" className="py-20 px-6 relative z-10">
+          <section id="projects" className="py-20 px-6 relative z-10 scroll-mt-24">
             <div className="max-w-6xl mx-auto">
               <motion.div variants={itemVariants} className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -314,8 +331,7 @@ const Portfolio = () => {
             </div>
           </section>
           
-          {/* Updated Experience Section with Card Format */}
-          <section id="experience" className="py-20 px-6 relative z-10">
+          <section id="experience" className="py-20 px-6 relative z-10 scroll-mt-24">
             <div className="max-w-4xl mx-auto">
               <motion.div variants={itemVariants} className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -336,8 +352,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* MODIFICATION: Contact Section with form and links */}
-          <section id="contact" className="py-20 px-6 relative z-10">
+          <section id="contact" className="py-20 px-6 relative z-10 scroll-mt-24">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                     Let's Connect
