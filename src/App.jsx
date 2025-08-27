@@ -88,7 +88,6 @@ const Portfolio = () => {
     setIsSending(false);
   };
   
-  // Using the full project list you provided, with the new githubLink property
   const projects = [
     {
       title: "LexiGen AI - Legal Document Generation Tool",
@@ -152,59 +151,64 @@ const Portfolio = () => {
     e.preventDefault();
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
   };
+  
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const ProjectCard = ({ project }) => (
-  <motion.div
-    variants={itemVariants}
-    whileHover={{ y: -8, scale: 1.03, transition: { type: 'spring', stiffness: 300 } }}
-    className="relative overflow-hidden rounded-2xl p-6 bg-white/5 backdrop-blur border border-white/10 group hover:border-purple-400 transition-colors duration-300"
-  >
-    <div className="relative z-10 flex flex-col h-full">
-      <div>
-        <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
-        <p className="text-white/90 mb-4 leading-relaxed">{project.desc}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech?.map((tech, i) => (
-            <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium backdrop-blur">
-              {tech}
-            </span>
-          ))}
+    <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -8, scale: 1.03, transition: { type: 'spring', stiffness: 300 } }}
+        className="relative overflow-hidden rounded-2xl p-6 bg-white/5 backdrop-blur border border-white/10 group hover:border-purple-400 transition-colors duration-300"
+    >
+        <div className="relative z-10 flex flex-col h-full">
+            <div>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
+                <p className="text-white/90 mb-4 leading-relaxed">{project.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech?.map((tech, i) => (
+                        <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium backdrop-blur">
+                        {tech}
+                        </span>
+                    ))}
+                </div>
+            </div>
+            <div className="flex items-center gap-4 mt-auto pt-4">
+                {project.link && (
+                <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-purple-400 hover:text-white transition-all duration-200 p-2 -ml-2 rounded-lg hover:bg-purple-600/20 transform hover:scale-105"
+                    role="button"
+                >
+                    <ExternalLink size={16} className="mr-2" />
+                    <span className="text-sm font-medium">View Project</span>
+                </a>
+                )}
+                {project.githubLink && (
+                <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center justify-center text-purple-400 hover:text-white transition-all duration-200 transform hover:scale-105 hover:bg-purple-600/20 ${
+                    project.link ? 'w-9 h-9 rounded-full' : 'p-2 -ml-2 rounded-lg'
+                    }`}
+                    role="button"
+                >
+                    <Github size={16} className={!project.link ? 'mr-2' : ''} />
+                    {!project.link && <span className="text-sm font-medium">View Code</span>}
+                </a>
+                )}
+            </div>
         </div>
-      </div>
-
-      <div className="flex items-center gap-4 mt-auto pt-4">
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-purple-400 hover:text-white transition-all duration-200 p-2 -ml-2 rounded-lg hover:bg-purple-600/20 transform hover:scale-105"
-            role="button"
-          >
-            <ExternalLink size={16} className="mr-2" />
-            <span className="text-sm font-medium">View Project</span>
-          </a>
-        )}
-        {project.githubLink && (
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            // MODIFICATION: Conditional classes for the round hover effect
-            className={`flex items-center justify-center text-purple-400 hover:text-white transition-all duration-200 transform hover:scale-105 hover:bg-purple-600/20 ${
-              project.link ? 'w-9 h-9 rounded-full' : 'p-2 -ml-2 rounded-lg'
-            }`}
-            role="button"
-          >
-            {/* MODIFICATION: Conditional margin for the icon */}
-            <Github size={16} className={!project.link ? 'mr-2' : ''} />
-            {!project.link && <span className="text-sm font-medium">View Code</span>}
-          </a>
-        )}
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
 
   return (
     <>
@@ -221,7 +225,13 @@ const Portfolio = () => {
           className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-lg border-b border-white/10"
         >
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            {/* MODIFICATION: Added hover effect classes */}
+            <div
+              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.6)]"
+              onClick={handleHomeClick}
+              role="button"
+              tabIndex={0}
+            >
               Prasaad Krishna
             </div>
             <div className="hidden md:flex space-x-8">
@@ -265,7 +275,6 @@ const Portfolio = () => {
         {/* Sections Wrapper for scroll animations */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={containerVariants}>
           
-          {/* MODIFICATION: Added scroll-mt-24 to fix nav overlap AND restored section content */}
           <section id="about" className="py-20 px-6 relative z-10 scroll-mt-24">
             <div className="max-w-6xl mx-auto">
               <motion.div variants={itemVariants} className="text-center mb-16">
