@@ -271,7 +271,7 @@ const Portfolio = () => {
                 <motion.a 
                   whileHover={{ scale: 1.05, backgroundColor: '#8b5cf6', boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' }} 
                   transition={{ type: 'spring', stiffness: 300 }} 
-                  href="assets/Resume.pdf"
+                  href="public/assets/Resume.pdf"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold text-lg inline-block text-center"
