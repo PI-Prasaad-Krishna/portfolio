@@ -118,19 +118,19 @@ const Portfolio = () => {
       githubLink: "https://github.com/PI-Prasaad-Krishna/f1-predictions"
     },
     {
-        title: "Bus Reservation System",
-        desc: "Python + MySQL GUI app for booking multiple seats with visual layout, user login, and real-time seat map.",
-        tech: ["Python", "MySQL", "Tkinter"],
-        link: null,
-        githubLink: "https://github.com/PI-Prasaad-Krishna/Simple_BusReservationSystem"
-      },
-      {
-        title: "Matrix Chain Multiplication Visualizer",
-        desc: "C++ implementation with visualization showing optimal parenthesis placement.",
-        tech: ["C++", "Algorithms", "Visualization"],
-        link: null,
-        githubLink: "https://github.com/PI-Prasaad-Krishna/DP-MatrixChainMultiplication"
-      },
+      title: "Bus Reservation System",
+      desc: "Python + MySQL GUI app for booking multiple seats with visual layout, user login, and real-time seat map.",
+      tech: ["Python", "MySQL", "Tkinter"],
+      link: null,
+      githubLink: "https://github.com/PI-Prasaad-Krishna/Simple_BusReservationSystem"
+    },
+    {
+      title: "Matrix Chain Multiplication Visualizer",
+      desc: "C++ implementation with visualization showing optimal parenthesis placement.",
+      tech: ["C++", "Algorithms", "Visualization"],
+      link: null,
+      githubLink: "https://github.com/PI-Prasaad-Krishna/DP-MatrixChainMultiplication"
+    },
     {
       title: "MindMate – Mental Wellness Web App",
       desc: "A full-stack platform to help users manage their mental health. Includes journaling, motivational content, and a mood-based support system.",
@@ -139,11 +139,11 @@ const Portfolio = () => {
       githubLink: "https://github.com/PI-Prasaad-Krishna/MindMate"
     },
     {
-    title: "AI Interview Simulator",
-    desc: "Simulates real job interviews using AI. Users answer dynamic questions and get scored with instant feedback. Built for a club hackathon with a full-stack React + AI setup.",
-    tech: ["React", "OpenRouter", "AI", "Full-Stack", "Prompt Engineering"],
-    link: "https://hackathon-ck-7eu7.vercel.app/",
-    githubLink: "https://github.com/abhinavkajeev/hackathon-ck"
+      title: "AI Interview Simulator",
+      desc: "Simulates real job interviews using AI. Users answer dynamic questions and get scored with instant feedback. Built for a club hackathon with a full-stack React + AI setup.",
+      tech: ["React", "OpenRouter", "AI", "Full-Stack", "Prompt Engineering"],
+      link: "https://hackathon-ck-7eu7.vercel.app/",
+      githubLink: "https://github.com/abhinavkajeev/hackathon-ck"
     }
   ];
 
