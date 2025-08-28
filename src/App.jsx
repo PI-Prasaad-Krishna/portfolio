@@ -162,51 +162,51 @@ const Portfolio = () => {
 
   const ProjectCard = ({ project }) => (
     <motion.div
-        variants={itemVariants}
-        whileHover={{ y: -8, scale: 1.03, transition: { type: 'spring', stiffness: 300 } }}
-        className="relative overflow-hidden rounded-2xl p-6 bg-white/5 backdrop-blur border border-white/10 group hover:border-purple-400 transition-colors duration-300"
+      variants={itemVariants}
+      whileHover={{ y: -8, scale: 1.03, transition: { type: 'spring', stiffness: 300 } }}
+      className="relative overflow-hidden rounded-2xl p-6 bg-white/5 backdrop-blur border border-white/10 group hover:border-purple-400 transition-colors duration-300"
     >
-        <div className="relative z-10 flex flex-col h-full">
-            <div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
-                <p className="text-white/90 mb-4 leading-relaxed">{project.desc}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech?.map((tech, i) => (
-                        <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium backdrop-blur">
-                        {tech}
-                        </span>
-                    ))}
-                </div>
-            </div>
-            <div className="flex items-center gap-4 mt-auto pt-4">
-                {project.link && (
-                <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-purple-400 hover:text-white transition-all duration-200 p-2 -ml-2 rounded-lg hover:bg-purple-600/20 transform hover:scale-105"
-                    role="button"
-                >
-                    <ExternalLink size={16} className="mr-2" />
-                    <span className="text-sm font-medium">View Project</span>
-                </a>
-                )}
-                {project.githubLink && (
-                <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-center text-purple-400 hover:text-white transition-all duration-200 transform hover:scale-105 hover:bg-purple-600/20 ${
-                    project.link ? 'w-9 h-9 rounded-full' : 'p-2 -ml-2 rounded-lg'
-                    }`}
-                    role="button"
-                >
-                    <Github size={16} className={!project.link ? 'mr-2' : ''} />
-                    {!project.link && <span className="text-sm font-medium">View Code</span>}
-                </a>
-                )}
-            </div>
+      <div className="relative z-10 flex flex-col h-full">
+        <div>
+          <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
+          <p className="text-white/90 mb-4 leading-relaxed">{project.desc}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tech?.map((tech, i) => (
+              <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium backdrop-blur">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* MODIFICATION: Simplified and consistent link section */}
+        <div className="flex items-center gap-6 mt-auto pt-4">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-purple-400 hover:text-white transition-all duration-200 transform hover:scale-105"
+              role="button"
+            >
+              <ExternalLink size={16} className="mr-2" />
+              <span className="text-sm font-medium">View Project</span>
+            </a>
+          )}
+          {project.githubLink && (
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-purple-400 hover:text-white transition-all duration-200 transform hover:scale-105"
+              role="button"
+            >
+              <Github size={16} className="mr-2" />
+              <span className="text-sm font-medium">View Code</span>
+            </a>
+          )}
+        </div>
+      </div>
     </motion.div>
   );
 
