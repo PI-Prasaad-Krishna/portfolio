@@ -90,11 +90,25 @@ const Portfolio = () => {
   
   const projects = [
     {
+      title: "AyuSetu - Dual Coding Medical Interface",
+      desc: "Full-stack medical coding app with a responsive React UI, multi-mode search (voice, autocomplete), and a Rust backend for mapping traditional Indian medical codes to the global ICD-11 standard.",
+      tech: ["React", "Rust", "MongoDB", "Redis"],
+      link: null, 
+      githubLink: "https://github.com/Not-Buddy/CodeVedas_SIH"
+    },
+    {
       title: "LexiGen AI - Legal Document Generation Tool",
       desc: "An AI-powered platform for generating key legal documents, currently featuring rental agreements and NDAs. LexiGen AI is designed to streamline the creation of accurate legal paperwork through an intuitive interface, with plans to expand its document library.",
       tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase", "Prompt Engineering", "Full-Stack"],
       link: "https://lexigenai.vercel.app/",
       githubLink: "https://github.com/PI-Prasaad-Krishna/LexiGen"
+    },
+    {
+      title: "AI Interview Simulator",
+      desc: "Simulates real job interviews using AI. Users answer dynamic questions and get scored with instant feedback. Built for a club hackathon with a full-stack React + AI setup.",
+      tech: ["React", "OpenRouter", "AI", "Full-Stack", "Prompt Engineering"],
+      link: "https://hackathon-ck-7eu7.vercel.app/",
+      githubLink: "https://github.com/abhinavkajeev/hackathon-ck"
     },
     {
       title: "GetChef - AI Recipe Generator",
@@ -104,34 +118,6 @@ const Portfolio = () => {
       githubLink: "https://github.com/PI-Prasaad-Krishna/GetChef"
     },
     {
-      title: "LearnX - AI Powered E-Learning Platform",
-      desc: "MERN Stack + AI with interactive courses, demo videos, and AI Q&A bot. Built during HackVerse'25.",
-      tech: ["React", "Node.js", "MongoDB", "AI"],
-      link: null, 
-      githubLink: "https://github.com/abhinavkajeev/Hackverse25-LearnX"
-    },
-    {
-      title: "F1 Race Winner Predictor",
-      desc: "Python-based statistical model predicting F1 GP outcomes using driver form and track stats.",
-      tech: ["Python", "ML", "Statistics"],
-      link: null,
-      githubLink: "https://github.com/PI-Prasaad-Krishna/f1-predictions"
-    },
-    {
-      title: "Bus Reservation System",
-      desc: "Python + MySQL GUI app for booking multiple seats with visual layout, user login, and real-time seat map.",
-      tech: ["Python", "MySQL", "Tkinter"],
-      link: null,
-      githubLink: "https://github.com/PI-Prasaad-Krishna/Simple_BusReservationSystem"
-    },
-    {
-      title: "Matrix Chain Multiplication Visualizer",
-      desc: "C++ implementation with visualization showing optimal parenthesis placement.",
-      tech: ["C++", "Algorithms", "Visualization"],
-      link: null,
-      githubLink: "https://github.com/PI-Prasaad-Krishna/DP-MatrixChainMultiplication"
-    },
-    {
       title: "MindMate – Mental Wellness Web App",
       desc: "A full-stack platform to help users manage their mental health. Includes journaling, motivational content, and a mood-based support system.",
       tech: ["React", "Firebase", "Tailwind", "WebApp"],
@@ -139,11 +125,11 @@ const Portfolio = () => {
       githubLink: "https://github.com/PI-Prasaad-Krishna/MindMate"
     },
     {
-      title: "AI Interview Simulator",
-      desc: "Simulates real job interviews using AI. Users answer dynamic questions and get scored with instant feedback. Built for a club hackathon with a full-stack React + AI setup.",
-      tech: ["React", "OpenRouter", "AI", "Full-Stack", "Prompt Engineering"],
-      link: "https://hackathon-ck-7eu7.vercel.app/",
-      githubLink: "https://github.com/abhinavkajeev/hackathon-ck"
+      title: "F1 Race Winner Predictor",
+      desc: "Python-based statistical model predicting F1 GP outcomes using driver form and track stats.",
+      tech: ["Python", "ML", "Statistics"],
+      link: null,
+      githubLink: "https://github.com/PI-Prasaad-Krishna/f1-predictions"
     }
   ];
 
