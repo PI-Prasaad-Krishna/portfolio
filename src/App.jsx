@@ -407,7 +407,7 @@ const Portfolio = () => {
         {/* Footer */}
         <footer className="py-8 px-6 border-t border-white/10 relative z-10 text-center">
           <p className="text-gray-400 mb-2">© 2025 Prasaad Krishna. All rights reserved.</p>
-          <p className="text-gray-500">Built with ❤️ and React | Open to collaborations!</p>
+          <p className="text-gray-500">Designed & Developed by Prasaad Krishna | Open to collaborations!</p>
         </footer>
 
       </div>
