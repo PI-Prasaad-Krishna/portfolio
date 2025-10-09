@@ -101,7 +101,7 @@ const Portfolio = () => {
       desc: "An AI-powered platform for generating key legal documents, currently featuring rental agreements and NDAs. LexiGen AI is designed to streamline the creation of accurate legal paperwork through an intuitive interface, with plans to expand its document library.",
       tech: ["React", "AI", "Vite", "Tailwind CSS", "Firebase", "Prompt Engineering", "Full-Stack"],
       link: "https://lexigenai.vercel.app/",
-      githubLink: "https://github.com/PI-Prasaad-Krishna/LexiGen"
+      githubLink: "https://github.com/PI-Prasaad-Krishna/Legal_Document_Generator"
     },
     {
       title: "AI Interview Simulator",
@@ -115,7 +115,7 @@ const Portfolio = () => {
       desc: "A full-stack web app that generates unique recipes from user-provided ingredients using AI. Features secure user authentication, a personal recipe collection, and a multi-page interface.",
       tech: ["React", "Firebase", "Tailwind CSS", "Vite", "AI", "Prompt Engineering", "Full-Stack"],
       link: "https://getchef.vercel.app/",
-      githubLink: "https://github.com/PI-Prasaad-Krishna/GetChef"
+      githubLink: "https://github.com/PI-Prasaad-Krishna/CHEF_AI"
     },
     {
       title: "MindMate – Mental Wellness Web App",
