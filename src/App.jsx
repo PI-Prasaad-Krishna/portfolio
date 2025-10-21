@@ -94,7 +94,7 @@ const Portfolio = () => {
       desc: "Full-stack medical coding app with a responsive React UI, multi-mode search (voice, autocomplete), and a Rust backend for mapping traditional Indian medical codes to the global ICD-11 standard.",
       tech: ["React", "Rust", "MongoDB", "Redis"],
       link: null, 
-      githubLink: "https://github.com/Not-Buddy/CodeVedas_SIH"
+      githubLink: "https://github.com/PI-Prasaad-Krishna/CodeVedas_SIH"
     },
     {
       title: "LexiGen AI - Legal Document Generation Tool",
