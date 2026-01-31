@@ -76,7 +76,7 @@ const Contact = () => {
                                 type="text"
                                 name="name"
                                 required
-                                placeholder="John Doe"
+                                placeholder="Your Name"
                                 className="w-full bg-dark/50 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all"
                             />
                         </div>
@@ -87,7 +87,7 @@ const Contact = () => {
                                 type="email"
                                 name="email"
                                 required
-                                placeholder="john@example.com"
+                                placeholder="Your Email "
                                 className="w-full bg-dark/50 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all"
                             />
                         </div>
