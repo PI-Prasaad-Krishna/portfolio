@@ -8,7 +8,7 @@ const experiences = [
         role: "Competitive Programmer",
         company: "Codekrafters (SRM IST)",
         date: "Nov 2024 - Present",
-        description: "Active member of the official Competitive Programming club. regularly solving algorithmic challenges, mastering Data Structures & Algorithms, and collaborating on technical events.",
+        description: "Active member of the Competitive Programming domain. Regularly solving algorithmic challenges, mastering Data Structures & Algorithms, and collaborating on technical events.",
         tags: ["Python", "DSA", "Problem Solving"],
         icon: <Code size={20} />
     },
