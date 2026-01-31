@@ -6,7 +6,7 @@ import * as random from 'maath/random/dist/maath-random.esm';
 // This component creates and animates the starfield
 const Starfield = (props) => {
   const ref = useRef();
-  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }));
+  const [sphere] = useState(() => random.inSphere(new Float32Array(4000), { radius: 1.5 }));
 
   // This hook animates the stars on every frame
   useFrame((state, delta) => {
