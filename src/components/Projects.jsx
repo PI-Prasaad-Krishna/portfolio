@@ -4,6 +4,13 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
     {
+        title: "Scoutrix",
+        desc: "Full-stack AI-powered sports discovery platform. Features local video processing for extracting biomechanical metrics and an automated recruitment engine with live AI performance narratives.",
+        tech: ["React", "Node.js", "MongoDB", "AI"],
+        link: "https://scoutrix.vercel.app/",
+        githubLink: "https://github.com/PI-Prasaad-Krishna/Scoutrix"
+    },
+    {
         title: "AyuSetu - Medical Interface",
         desc: "Full-stack medical coding app with a responsive React UI, multi-mode search (voice, autocomplete), and a Rust backend for mapping traditional Indian medical codes to the global ICD-11 standard.",
         tech: ["React", "Rust", "MongoDB", "Redis"],
@@ -11,11 +18,11 @@ const projects = [
         githubLink: "https://github.com/PI-Prasaad-Krishna/CodeVedas_SIH"
     },
     {
-        title: "LexiGen AI - Legal Docs",
-        desc: "AI-powered platform for generating key legal documents like rental agreements and NDAs. Streamlines the creation of accurate legal paperwork through an intuitive interface.",
-        tech: ["React", "AI", "Vite", "Firebase"],
-        link: "https://lexigenai.vercel.app/",
-        githubLink: "https://github.com/PI-Prasaad-Krishna/Legal_Document_Generator"
+        title: "F1 Visualizer Hub",
+        desc: "Interactive 3D race replayer and analytics dashboard for Formula 1 telemetry data. Features physics-based camera inertia, driver position interpolation, and detailed performance metrics.",
+        tech: ["Python", "FastF1", "VisPy", "Data Analytics"],
+        link: null,
+        githubLink: "https://github.com/PI-Prasaad-Krishna/FormulaOne-replayer"
     },
     {
         title: "AI Interview Simulator",
@@ -30,13 +37,6 @@ const projects = [
         tech: ["React", "Firebase", "AI", "Tailwind"],
         link: "https://getchef.vercel.app/",
         githubLink: "https://github.com/PI-Prasaad-Krishna/CHEF_AI"
-    },
-    {
-        title: "MindMate – Wellness App",
-        desc: "A full-stack platform to help users manage their mental health. Includes journaling, motivational content, and a mood-based support system.",
-        tech: ["React", "Firebase", "Tailwind"],
-        link: "https://mindmate-34df5.web.app/",
-        githubLink: "https://github.com/PI-Prasaad-Krishna/MindMate"
     },
     {
         title: "F1 Race Predictor",
@@ -106,7 +106,7 @@ const ProjectCard = ({ project, index }) => {
                     <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-all duration-300">
                         {project.title}
                     </h3>
-                    <p className="text-gray-400 mb-6 leading-relaxed text-sm">
+                    <p className="text-gray-400 mb-6 leading-relaxed text-sm text-justify">
                         {project.desc}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-8">
