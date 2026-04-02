@@ -15,7 +15,7 @@ const App = () => {
     <>
       <CustomCursor />
       <Background3D />
-      <div className="bg-dark min-h-screen text-slate-200 selection:bg-primary/30 selection:text-white">
+      <div className="bg-transparent min-h-screen selection:bg-primary/30 selection:text-white transition-colors duration-500">
         <Navbar />
         <main>
           <Hero />

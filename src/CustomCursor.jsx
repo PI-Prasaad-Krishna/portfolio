@@ -37,13 +37,13 @@ const CustomCursor = () => {
     <motion.div
       className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
       style={{
-        translateX: position.x - 16, // Center the cursor
+        translateX: position.x - 16,
         translateY: position.y - 16,
       }}
       animate={{
         width: isHovering ? 48 : 32,
         height: isHovering ? 48 : 32,
-        border: isHovering ? '2px solid #8b5cf6' : '2px solid white',
+        border: isHovering ? '2px solid #8b5cf6' : '2px solid rgba(255,255,255,0.85)',
         backgroundColor: isHovering ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
       }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}

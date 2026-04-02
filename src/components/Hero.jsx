@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { Spotlight } from './ui/Spotlight';
+import { WordRotate } from './ui/WordRotate';
 
 const Hero = () => {
+
     const handleScrollDown = () => {
         const aboutSection = document.getElementById('about');
         if (aboutSection) {
@@ -15,58 +18,63 @@ const Hero = () => {
 
     return (
         <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-            {/* Overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-dark/30 via-dark/10 to-dark z-0 pointer-events-none"></div>
+            <Spotlight
+                className="-top-40 left-0 md:left-60 md:-top-20"
+                fill="white"
+            />
 
-            <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            {/* Minimalist gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-200/50 dark:to-dark/50 z-0 pointer-events-none transition-colors duration-500"></div>
+
+            <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
+                    <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-slate-200/50 dark:bg-white/[0.03] border border-slate-300/50 dark:border-white/10 text-slate-700 dark:text-gray-300 text-sm font-medium mb-8 backdrop-blur-md shadow-sm transition-all hover:bg-slate-300/50 dark:hover:bg-white/[0.08]">
+                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                         Available for Internships
                     </span>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 tracking-tight">
-                        <span className="text-secondary">
-                            Prasaad Krishna
-                        </span>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 tracking-tight text-slate-900 dark:text-white drop-shadow-sm transition-colors">
+                        Prasaad Krishna
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Crafting digital experiences with <span className="text-white font-medium">code</span> and <span className="text-white font-medium">creativity</span>.
-                        <br />
-                        <span className="text-gray-400 text-lg mt-2 block">
-                            Full Stack Developer | Data Science Enthusiast | F1 Fanatic
-                        </span>
-                    </p>
+                    <div className="text-xl md:text-2xl text-slate-600 dark:text-gray-400 font-light mb-8 max-w-2xl mx-auto leading-relaxed flex flex-col items-center justify-center transition-colors">
+                        <p className="mb-2">Crafting digital experiences with code.</p>
+                        <WordRotate
+                            className="text-primary"
+                            words={["Full Stack Developer", "Data Science Enthusiast", "F1 Fanatic"]}
+                        />
+                    </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                         <a
                             href="#projects"
                             onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-                            className="px-8 py-3.5 rounded-full bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transform hover:-translate-y-1"
+                            className="relative group px-8 py-3.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-dark font-medium transition-all transform hover:-translate-y-1 overflow-hidden shadow-lg shadow-black/5 dark:shadow-white/5"
                         >
-                            View Projects
+                            <span className="relative z-10">View Projects</span>
+                            <div className="absolute inset-0 bg-slate-800 dark:bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-xl"></div>
                         </a>
                         <a
                             href="#contact"
                             onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-                            className="px-8 py-3.5 rounded-full bg-white/5 border border-white/10 text-white font-medium backdrop-blur-sm hover:bg-white/10 transition-all hover:border-white/20"
+                            className="px-8 py-3.5 rounded-xl bg-white/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white font-medium backdrop-blur-sm hover:bg-slate-200 dark:hover:bg-white/10 transition-all hover:border-slate-400 dark:hover:border-white/20"
                         >
                             Contact Me
                         </a>
                     </div>
 
-                    <div className="flex justify-center gap-6 text-gray-400">
-                        <a href="https://github.com/PI-Prasaad-Krishna" target="_blank" rel="noreferrer" className="hover:text-white transition-colors hover:scale-110 transform duration-200">
+                    <div className="flex justify-center gap-6 text-slate-500 dark:text-gray-500 transition-colors">
+                        <a href="https://github.com/PI-Prasaad-Krishna" target="_blank" rel="noreferrer" className="hover:text-primary dark:hover:text-white transition-colors hover:scale-110 transform duration-200">
                             <Github size={24} />
                         </a>
-                        <a href="https://www.linkedin.com/in/p-i-prasaad-krishna-1b880a290/" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">
+                        <a href="https://www.linkedin.com/in/p-i-prasaad-krishna-1b880a290/" target="_blank" rel="noreferrer" className="hover:text-primary dark:hover:text-white transition-colors hover:scale-110 transform duration-200">
                             <Linkedin size={24} />
                         </a>
-                        <a href="mailto:prasaad2005@gmail.com" className="hover:text-red-400 transition-colors hover:scale-110 transform duration-200">
+                        <a href="mailto:prasaad2005@gmail.com" className="hover:text-primary dark:hover:text-white transition-colors hover:scale-110 transform duration-200">
                             <Mail size={24} />
                         </a>
                     </div>
@@ -80,7 +88,7 @@ const Hero = () => {
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 onClick={handleScrollDown}
             >
-                <ArrowDown className="text-gray-400 hover:text-white transition-colors" size={32} />
+                <ArrowDown className="text-slate-400 dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors" size={28} />
             </motion.div>
         </section>
     );

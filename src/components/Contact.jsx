@@ -37,74 +37,71 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-20 relative z-10">
+        <section id="contact" className="py-24 relative z-10 bg-transparent transition-colors">
             <div className="max-w-4xl mx-auto px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.1 }}
                     transition={{ duration: 0.6 }}
+                    className="mb-16"
                 >
-                    <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                    <h2 className="text-sm font-semibold tracking-widest text-primary uppercase mb-3">
                         Get In Touch
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading">
-                        <span className="text-secondary">
-                            Let's Collaborate
-                        </span>
                     </h2>
-                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                    <h3 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6 transition-colors">
+                        Let's Collaborate
+                    </h3>
+                    <p className="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto font-light transition-colors">
                         Have a question or want to collaborate? Send me a message!
                     </p>
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.1 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="glass-card p-8 md:p-12 rounded-3xl max-w-2xl mx-auto relative overflow-hidden"
+                    className="bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/5 p-8 md:p-12 rounded-3xl max-w-2xl mx-auto relative overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none backdrop-blur-xl transition-colors"
                 >
-                    {/* Decorative glow */}
-                    <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
-
                     <form ref={form} onSubmit={sendEmail} className="text-left space-y-6 relative z-10">
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                required
-                                placeholder="Your Name"
-                                className="w-full bg-dark/50 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all"
-                            />
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label htmlFor="name" className="block text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-2">Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    required
+                                    placeholder="Jane Doe"
+                                    className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-4 text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none transition-all"
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="email" className="block text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-2">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    placeholder="jane@example.com"
+                                    className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-4 text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none transition-all"
+                                />
+                            </div>
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                placeholder="Your Email "
-                                className="w-full bg-dark/50 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                            <label htmlFor="message" className="block text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-2">Message</label>
                             <textarea
                                 name="message"
                                 required
-                                placeholder="Your message here..."
+                                placeholder="Hi Prasaad, I'd like to talk about..."
                                 rows="5"
-                                className="w-full bg-dark/50 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all"
+                                className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-4 text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none transition-all resize-none"
                             ></textarea>
                         </div>
 
                         {error && (
-                            <div className="flex items-center text-red-400 text-sm bg-red-400/10 p-3 rounded-lg">
+                            <div className="flex items-center text-red-500 dark:text-red-400 text-sm bg-red-50 dark:bg-red-400/10 border border-red-200 dark:border-red-400/20 p-4 rounded-xl">
                                 <AlertCircle size={16} className="mr-2" />
                                 {error}
                             </div>
@@ -113,23 +110,23 @@ const Contact = () => {
                         <button
                             type="submit"
                             disabled={isSending || isSent}
-                            className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center
-                ${isSent
-                                    ? 'bg-green-500 text-white cursor-default'
-                                    : 'bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white shadow-lg hover:shadow-primary/25'
+                            className={`w-full py-4 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center
+                                ${isSent
+                                    ? 'bg-green-100 text-green-600 border border-green-200 dark:bg-green-500/20 dark:text-green-400 dark:border-green-500/30 cursor-default'
+                                    : 'bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-dark dark:hover:bg-gray-200 shadow-md'
                                 } disabled:opacity-70 disabled:cursor-not-allowed`}
                         >
                             {isSending ? (
-                                <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                <div className="w-5 h-5 border-2 border-slate-300 border-t-slate-900 dark:border-dark/30 dark:border-t-dark rounded-full animate-spin"></div>
                             ) : isSent ? (
                                 <>
-                                    <CheckCircle size={20} className="mr-2" />
+                                    <CheckCircle size={18} className="mr-2" />
                                     Message Sent!
                                 </>
                             ) : (
                                 <>
                                     Send Message
-                                    <Send size={18} className="ml-2" />
+                                    <Send size={16} className="ml-2" />
                                 </>
                             )}
                         </button>

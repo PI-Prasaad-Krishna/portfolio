@@ -6,12 +6,12 @@ import * as random from 'maath/random/dist/maath-random.esm';
 // This component creates and animates the starfield
 const Starfield = (props) => {
   const ref = useRef();
-  const [sphere] = useState(() => random.inSphere(new Float32Array(4000), { radius: 1.5 }));
+  const [sphere] = useState(() => random.inSphere(new Float32Array(1800), { radius: 1.35 }));
 
   // This hook animates the stars on every frame
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+    ref.current.rotation.x -= delta / 20;
+    ref.current.rotation.y -= delta / 28;
   });
 
   return (
@@ -19,8 +19,8 @@ const Starfield = (props) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
         <PointMaterial
           transparent
-          color="#ffffff"
-          size={0.005}
+          color="#cbd5e1"
+          size={0.0035}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -33,6 +33,7 @@ const Starfield = (props) => {
 const Background3D = () => {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_35%),radial-gradient(circle_at_bottom,rgba(15,23,42,0.2),transparent_65%)]" />
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <Starfield />
