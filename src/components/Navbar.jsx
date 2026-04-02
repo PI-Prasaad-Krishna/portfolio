@@ -42,7 +42,7 @@ const Navbar = () => {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 className={cn(
-                    "fixed top-4 inset-x-0 mx-auto w-[90%] md:w-[70%] max-w-4xl z-50 transition-all duration-500 rounded-full",
+                    "hidden md:block fixed top-4 inset-x-0 mx-auto w-[90%] md:w-[70%] max-w-4xl z-50 transition-all duration-500 rounded-full",
                     scrolled ? "bg-white/80 dark:bg-black/50 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-xl py-3" : "bg-transparent py-4"
                 )}
             >
@@ -80,17 +80,19 @@ const Navbar = () => {
                         </a>
                     </div>
 
-                    {/* Mobile Menu Toggle */}
-                    <div className="md:hidden flex items-center gap-4">
-                        <button
-                            className="text-slate-800 dark:text-white"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        >
-                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
-                    </div>
                 </div>
             </motion.div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="md:hidden fixed top-4 right-4 z-50">
+                <button
+                    aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    className="p-2 text-white"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                </button>
+            </div>
 
             {/* Mobile Menu */}
             <AnimatePresence>
