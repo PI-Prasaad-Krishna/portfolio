@@ -10,7 +10,7 @@ const projects = [
         tech: ["React", "Node.js", "MongoDB", "AI"],
         link: "https://scoutrix.vercel.app/",
         githubLink: "https://github.com/PI-Prasaad-Krishna/Scoutrix",
-        className: "md:col-span-2 lg:col-span-2", 
+        className: "md:col-span-2 lg:col-span-2",
     },
     {
         title: "AyuSetu",
@@ -24,7 +24,7 @@ const projects = [
         title: "F1 Visualizer Hub",
         desc: "Interactive 3D race replayer and analytics dashboard for Formula 1 telemetry data.",
         tech: ["Python", "FastF1", "VisPy"],
-        link: null,
+        link: "https://f1-data-suite.vercel.app/",
         githubLink: "https://github.com/PI-Prasaad-Krishna/FormulaOne-replayer",
         className: "md:col-span-1 lg:col-span-1",
     },
